@@ -16,6 +16,7 @@ public class Car : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        print("Hello World!");
         if (Input.GetMouseButtonDown(0))
         {
             StartPos = Input.mousePosition;
