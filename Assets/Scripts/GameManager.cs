@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
         Car = GameObject.Find("car");
         Flag = GameObject.Find("flag");
         Distance = GameObject.Find("Distance");
-        Score = gameObject.Find("Score");
+        Score = GameObject.Find("Score");
     }
 
     // Update is called once per frame
@@ -24,6 +24,21 @@ public class GameManager : MonoBehaviour
     {
         float Length = Flag.transform.position.x - Car.transform.position.x;
         Distance.GetComponent<Text>().text = "距離目標還有：" + Length.ToString("F2") + "公尺";
+        float Score2 = 0;
+        if (Length < 0 || Length>=14.5f)
+        {
+            Score2 = 0;
+        }
+        else
+        {
+            Score2 = 100/Length;
+            if (Score2 > 100)//分數大於100以100記
+                Score2 = 100;
+        }
+
+        
+        Score.GetComponent<Text>().text = "分數:" + Score2.ToString("F1") + "分";
+
     }
 
 }
